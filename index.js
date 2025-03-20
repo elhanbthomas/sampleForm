@@ -1,27 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-let date = new Date();
-let year = date.getFullYear();
-let month = String(date.getMonth() + 1).padStart(2, '0');
-let day = String(date.getDate()).padStart(2, '0');
-
-let maxDate = (year - 18) + "-" + month + "-" + day;
-let minDate = (year - 55) + "-" + month + "-" + day;
-
-console.log("Max Date:", maxDate);
-console.log("Min Date:", minDate);
-
-const DOB = document.getElementById("dob");
-if (DOB) {
-    DOB.setAttribute("max", maxDate);
-    DOB.setAttribute("min", minDate);
-}
-
-let form = document.getElementById("form");
-form.addEventListener("submit", addData);
-
-});
-
-
 const fetchData = () => {
     const data = localStorage.getItem("UserData");
     const parsed = JSON.parse(data);
@@ -35,6 +11,30 @@ const fetchData = () => {
     console.log(table_values);
     tbody.innerHTML = table_values;
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+let date = new Date();
+let year = date.getFullYear();
+let month = String(date.getMonth() + 1).padStart(2, '0');
+let day = String(date.getDate()).padStart(2, '0');
+
+let maxDate = (year - 18) + "-" + month + "-" + day;
+let minDate = (year - 55) + "-" + month + "-" + day;
+
+const DOB = document.getElementById("dob");
+if (DOB) {
+    DOB.setAttribute("max", maxDate);
+    DOB.setAttribute("min", minDate);
+}
+
+let form = document.getElementById("form");
+form.addEventListener("submit", addData);
+fetchData();
+});
+
+
+
 
 let entries = [];
 const addData = (e) => {
