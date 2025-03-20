@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
 const mail = document.getElementById("email");
 
 mail.addEventListener("input", () => {
-    const emailRegex = /^[a-zA-Z0-9._%+]+@[a-zA-Z0-9.]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(mail.value)) {
-        mail.setCustomValidity("Enter a valid email address.");
+    if(mail.validity.typeMismatch) {
+        mail.setCustomValidity("Enter a valid email address");
         mail.reportValidity();
-    } else {
-        mail.setCustomValidity("");
     }
+    else {
+        mail.setCustomValidity("");
+    }    
 });
 
 
