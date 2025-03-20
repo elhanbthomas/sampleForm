@@ -36,7 +36,7 @@ fetchData();
 
 
 
-let entries = [];
+let entries = localStorage.getItem("UserData") ? JSON.parse(localStorage.getItem("UserData")) : [];
 const addData = (e) => {
     e.preventDefault();
     const name = document.getElementById("name").value;
@@ -53,7 +53,6 @@ const addData = (e) => {
         terms: terms,
     };
     entries.push(data);
-
     localStorage.setItem("UserData", JSON.stringify(entries));
     form.reset();
 
