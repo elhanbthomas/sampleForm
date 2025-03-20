@@ -19,8 +19,8 @@ let year = date.getFullYear();
 let month = String(date.getMonth() + 1).padStart(2, '0');
 let day = String(date.getDate()).padStart(2, '0');
 
-let maxDate = (year - 18) + "-" + month + "-" + day-1;
-let minDate = (year - 55) + "-" + month + "-" + day+1;
+let maxDate = (year - 18) + "-" + month + "-" + day;
+let minDate = (year - 55) + "-" + month + "-" + day;
 
 const DOB = document.getElementById("dob");
 if (DOB) {
